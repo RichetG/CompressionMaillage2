@@ -1,6 +1,6 @@
 
 public class Vecteur {
-	
+	//Comm test
 	public double x, y, z;
 	
 	public Vecteur(double x, double y, double z){
@@ -8,7 +8,7 @@ public class Vecteur {
 		this.y=y;
 		this.z=z;
 	}
-
+	//Autre test
 	public double getX() {
 		return x;
 	}
