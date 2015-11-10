@@ -1,6 +1,7 @@
 package objParser;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class TestObjParser 
 {
@@ -18,6 +19,15 @@ public class TestObjParser
 		{
 			File f = new File(args[0]);
 			objParser.extract(f);
+			objParser.printData();
+			ArrayList<Vertex3D>list=objParser.determinationMaxMin();
+			System.out.println("\n");
+			for(int i=0; i<list.size(); i++){
+				System.out.println(list.get(i).toString());
+			}
+			objParser.conversion();
+			System.out.println("\n");
+			objParser.conversionInverse();
 			objParser.printData();
 		} catch (Exception e)
 		{

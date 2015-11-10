@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ObjParser
 {
 
-	public static ArrayList<Vertex3D> vertexList;
+	public static ArrayList<Vertex3D> vertexList, maxMin;
 	public static ArrayList<VertexTexture> vertexTextureList;
 	public static ArrayList<Face> faceList;
 
@@ -125,11 +125,22 @@ public class ObjParser
 	 * conversion des vertices borné entre 0-1
 	 */
 	public void conversion(){
-		ArrayList<Vertex3D>MaxMin=determinationMaxMin();
+		maxMin=determinationMaxMin();
 		for(int i=0; i<vertexList.size(); i++){
-			vertexList.get(i).setX((vertexList.get(i).getX()+(MaxMin.get(1).getX()*-1))/(MaxMin.get(0).getX()+(MaxMin.get(1).getX())*-1));
-			vertexList.get(i).setY((vertexList.get(i).getY()+(MaxMin.get(1).getY()*-1))/(MaxMin.get(0).getY()+(MaxMin.get(1).getY())*-1));
-			vertexList.get(i).setZ((vertexList.get(i).getZ()+(MaxMin.get(1).getZ()*-1))/(MaxMin.get(0).getZ()+(MaxMin.get(1).getZ())*-1));
+			vertexList.get(i).setX((vertexList.get(i).getX()+(maxMin.get(1).getX()*-1))/(maxMin.get(0).getX()+(maxMin.get(1).getX())*-1));
+			vertexList.get(i).setY((vertexList.get(i).getY()+(maxMin.get(1).getY()*-1))/(maxMin.get(0).getY()+(maxMin.get(1).getY())*-1));
+			vertexList.get(i).setZ((vertexList.get(i).getZ()+(maxMin.get(1).getZ()*-1))/(maxMin.get(0).getZ()+(maxMin.get(1).getZ())*-1));
+		}
+	}
+	
+	/**
+	 * conversion inverse des vertices à mettre à l'echelle initiale
+	 */
+	public void conversionInverse(){
+		for(int i=0; i<vertexList.size(); i++){
+			vertexList.get(i).setX((maxMin.get(0).getX()+(maxMin.get(1).getX()*-1))*vertexList.get(i).getX()-(maxMin.get(1).getX()*-1));
+			vertexList.get(i).setY((maxMin.get(0).getY()+(maxMin.get(1).getY()*-1))*vertexList.get(i).getY()-(maxMin.get(1).getY()*-1));
+			vertexList.get(i).setZ((maxMin.get(0).getZ()+(maxMin.get(1).getZ()*-1))*vertexList.get(i).getZ()-(maxMin.get(1).getZ()*-1));
 		}
 	}
 
