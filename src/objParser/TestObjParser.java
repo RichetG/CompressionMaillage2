@@ -18,16 +18,13 @@ public class TestObjParser
 		{
 			File f = new File(args[0]);
 			compression=new Compression(f);
+			System.out.println("--------fichier origine extrait--------\n");
 			compression.printData();
-			ArrayList<Vertex3D>list=compression.determinationMaxMin();
-			System.out.println("\n");
-			for(int i=0; i<list.size(); i++){
-				System.out.println(list.get(i).toString());
-			}
-			compression.conversion();
-			System.out.println("\n");
-			compression.conversionInverse();
+			compression.compressionMaillage(5, 5, 5);
+			System.out.println("\n--------fichier compresse--------\n");
 			compression.printData();
+			String tmpName=args[0].replace(".", "Compressed.");
+			compression.extractInverse(new File(tmpName));
 		} catch (Exception e)
 		{
 			e.printStackTrace();
