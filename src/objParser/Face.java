@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Representation objet d'une face sous forme d'une liste de FaceComponent (cf FaceComponent pour plus de details)
- * @author Yann GIROS
+ * @author Yann GIROS, Guillaume RICHET, Mathieu CADIO
  * @version 03/11/15
  */
 

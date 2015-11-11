@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Parser de fichier .obj pour collecte des donnees.
  * Les donnees collectees sont les vertex (v), vertexTexture(vt) et face (f).
- * @author Yann GIROS
+ * @author Yann GIROS, Guillaume RICHET, Mathieu CADIO
  * @version 03/11/15
  */
 
@@ -116,7 +116,7 @@ public class ObjParser
 
 	/**
 	 * Recuperation de 2 vecteurs avec les coords max et min
-	 * 
+	 * @return une liste de Vertex3D 
 	 */
 	public ArrayList<Vertex3D> determinationMaxMin(){
 		ArrayList<Vertex3D> limite=new ArrayList<Vertex3D>(2);
@@ -149,7 +149,7 @@ public class ObjParser
 	}
 	
 	/**
-	 * conversion des vertices born� entre 0-1
+	 * Conversion des vertices born� entre 0-1
 	 */
 	public void conversion(){
 		maxMin=determinationMaxMin();
@@ -171,6 +171,9 @@ public class ObjParser
 		}
 	}
 
+	/**
+	 * Affichage du contenu du ficher .obj extrait
+	 */
 	public void printData()
 	{
 		for(Vertex3D v : vertexList)

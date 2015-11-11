@@ -2,7 +2,7 @@ package objParser;
 
 /**
  * Representation objet d'un vertex texture (vt) sous forme de doublon x y
- * @author Yann GIROS
+ * @author Yann GIROS, Guillaume RICHET, Mathieu CADIO
  * @version 03/11/15
  *
  */

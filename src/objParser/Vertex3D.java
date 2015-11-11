@@ -2,7 +2,7 @@ package objParser;
 
 /**
  * Representation objet d'un vertex 3D sous forme de triplet x, y, z
- * @author Yann GIROS
+ * @author Yann GIROS, Guillaume RICHET, Mathieu CADIO
  * @version 03/11/15
  *
  */
