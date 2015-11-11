@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class TestObjParser 
 {
-	static ObjParser objParser;
+	static Compression compression;
 	
 	public static void main(String[] args)
 	{	
@@ -14,21 +14,20 @@ public class TestObjParser
 			System.out.println("error -> usage : TestObjParser file.obj");
 			System.exit(1);
 		}
-		objParser = new ObjParser();
 		try
 		{
 			File f = new File(args[0]);
-			objParser.extract(f);
-			objParser.printData();
-			ArrayList<Vertex3D>list=objParser.determinationMaxMin();
+			compression=new Compression(f);
+			compression.printData();
+			ArrayList<Vertex3D>list=compression.determinationMaxMin();
 			System.out.println("\n");
 			for(int i=0; i<list.size(); i++){
 				System.out.println(list.get(i).toString());
 			}
-			objParser.conversion();
+			compression.conversion();
 			System.out.println("\n");
-			objParser.conversionInverse();
-			objParser.printData();
+			compression.conversionInverse();
+			compression.printData();
 		} catch (Exception e)
 		{
 			e.printStackTrace();
