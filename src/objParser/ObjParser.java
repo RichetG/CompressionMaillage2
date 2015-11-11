@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class ObjParser
 {
+	// listes pour la collecte des 3 types de donnees differentes
 	public static ArrayList<Vertex3D> vertexList, maxMin;
 	public static ArrayList<VertexTexture> vertexTextureList;
 	public static ArrayList<Face> faceList;
