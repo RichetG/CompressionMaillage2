@@ -1,4 +1,4 @@
-package objParser;
+package Modele;
 
 import java.util.ArrayList;
 

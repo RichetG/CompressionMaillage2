@@ -1,4 +1,4 @@
-package objParser;
+package Modele;
 
 /**
  * Representation objet d'un vertex 3D sous forme de triplet x, y, z

@@ -1,4 +1,4 @@
-package objParser;
+package Modele;
 
 /**
  * Representation objet d'un doublon n°vertex3D/n°vertexTexture d'une face

@@ -1,4 +1,4 @@
-package objParser;
+package Modele;
 
 /**
  * Representation objet d'un vertex texture (vt) sous forme de doublon x y
