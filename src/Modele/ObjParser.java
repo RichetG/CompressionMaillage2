@@ -23,9 +23,9 @@ import java.util.ArrayList;
 public class ObjParser
 {
 	// listes pour la collecte des 3 types de donnees differentes
-	public static ArrayList<Vertex3D> vertexList, maxMin;
+	public static ArrayList<Vertex3D> vertexList, maxMin, ajoutVertex;
 	public static ArrayList<VertexTexture> vertexTextureList;
-	public static ArrayList<Face> faceList;
+	public static ArrayList<Face> faceList, ajoutFace;
 
 	/**
 	 * Constructeur.
@@ -36,6 +36,8 @@ public class ObjParser
 		vertexList = new ArrayList<Vertex3D>();
 		vertexTextureList = new ArrayList<VertexTexture>();
 		faceList = new ArrayList<Face>();
+		ajoutVertex=new ArrayList<Vertex3D>();
+		ajoutFace=new ArrayList<Face>();
 	}
 
 	/**
@@ -125,6 +127,7 @@ public class ObjParser
 	 * @param file
 	 * @throws IOException
 	 */
+	@SuppressWarnings("resource")
 	public void extractInverse(File file) throws IOException{
 		try {
 			OutputStream ops = new FileOutputStream(file);
@@ -140,6 +143,14 @@ public class ObjParser
 			}
 			for(int i=0; i<faceList.size(); i++){
 				bw.write(faceList.get(i).toString()+"\n");
+				bw.flush();
+			}
+			for(int i=0; i<ajoutVertex.size(); i++){
+				bw.write(ajoutVertex.get(i).toString()+"\n");
+				bw.flush();
+			}
+			for(int i=0; i<ajoutFace.size(); i++){
+				bw.write(ajoutFace.get(i).toString()+"\n");
 				bw.flush();
 			}
 		} catch (FileNotFoundException e) {
