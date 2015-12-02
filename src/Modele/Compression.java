@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Compression extends ObjParser{
 
 	private DecimalFormat df;
-	private double marge=0.05;
+	private double marge=0.02;
 
 	/**
 	 * Constructeur
