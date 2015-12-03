@@ -160,20 +160,23 @@ public class ObjParser
 
 	/**
 	 * Affichage du contenu du ficher .obj extrait
+	 * @return fichier
 	 */
-	public void printData()
+	public String printData()
 	{
+		String out="";
 		for(Vertex3D v : vertexList)
 		{
-			System.out.println(v.toString());
+			out+=v.toString()+"\n";
 		}
 		for(VertexTexture vt : vertexTextureList)
 		{
-			System.out.println(vt.toString());
+			out+=vt.toString()+"\n";
 		}
 		for(Face f : faceList)
 		{
-			System.out.println(f.toString());
+			out+=f.toString()+"\n";
 		}
+		return out;
 	}
 }

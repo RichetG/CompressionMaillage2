@@ -15,6 +15,7 @@ public class Compression extends ObjParser{
 
 	private DecimalFormat df;
 	private double marge=0.02;
+	private ArrayList<Vertex3D>vertexListOrigin=new ArrayList<Vertex3D>();
 
 	/**
 	 * Constructeur
@@ -271,8 +272,9 @@ public class Compression extends ObjParser{
 	 * @param nbDivisionLongueur
 	 * @param nbDivisionHauteur
 	 */
-	public void compressionMaillage(int nbDivisionLongueur, int nbDivisionHauteur, int nbDivisionProfondeur){
+	public void compressionMaillage(int nbDivisionLongueur, int nbDivisionHauteur, int nbDivisionProfondeur, boolean grilleOn){
 		double portionLongueur=1/(double) nbDivisionLongueur, portionHauteur=1/(double) nbDivisionHauteur, portionPofondeur=1/(double) nbDivisionProfondeur;//1 equivaut à la matrice de taille 1
+	
 		conversion();
 		int tmpX=0, tmpY=0, tmpZ=0; 
 		for(int i=0; i<vertexList.size(); i++){
@@ -289,8 +291,20 @@ public class Compression extends ObjParser{
 				vertexList.get(i).setZ((tmpZ+1)*portionPofondeur);
 			}
 		}
-		grille(nbDivisionLongueur, nbDivisionHauteur, nbDivisionProfondeur);
+		if(grilleOn){
+			grille(nbDivisionLongueur, nbDivisionHauteur, nbDivisionProfondeur);
+		}
 		conversionInverse();
+	}
+	
+	public double tauxErreur(ArrayList<Vertex3D>vertexListOrigin){
+		double result=0;
+		for(int i=0; i<vertexListOrigin.size();i++){
+			System.out.println(vertexListOrigin.get(i).getX()+" "+vertexList.get(i).getX());
+			result+=Math.sqrt(Math.pow(vertexList.get(i).getX()-vertexListOrigin.get(i).getX(), 2)+Math.pow(vertexList.get(i).getY()-vertexListOrigin.get(i).getY(), 2)+Math.pow(vertexList.get(i).getZ()-vertexListOrigin.get(i).getZ(), 2));
+		}
+		result=(double)result/vertexListOrigin.size();
+		return result;
 	}
 
 }
