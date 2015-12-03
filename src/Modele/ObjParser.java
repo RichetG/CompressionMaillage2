@@ -23,7 +23,8 @@ import java.util.ArrayList;
 public class ObjParser
 {
 	// listes pour la collecte des 3 types de donnees differentes
-	public static ArrayList<Vertex3D> vertexList, maxMin, ajoutVertex;
+	public static ArrayList<Vertex3D> maxMin, ajoutVertex;
+	public static ArrayVertex vertexListOrigin, vertexList;
 	public static ArrayList<VertexTexture> vertexTextureList;
 	public static ArrayList<Face> faceList, ajoutFace;
 
@@ -33,7 +34,7 @@ public class ObjParser
 	 */
 	public ObjParser()
 	{
-		vertexList = new ArrayList<Vertex3D>();
+		vertexList = new ArrayVertex();
 		vertexTextureList = new ArrayList<VertexTexture>();
 		faceList = new ArrayList<Face>();
 		ajoutVertex=new ArrayList<Vertex3D>();
@@ -115,6 +116,7 @@ public class ObjParser
 				}
 			}
 			br.close(); 
+			vertexListOrigin=(ArrayVertex)vertexList.clone();
 		}		
 		catch (Exception e)
 		{
@@ -165,9 +167,9 @@ public class ObjParser
 	public String printData()
 	{
 		String out="";
-		for(Vertex3D v : vertexList)
+		for(int i=0; i<vertexList.size(); i++)
 		{
-			out+=v.toString()+"\n";
+			out+=vertexList.get(i).toString()+"\n";
 		}
 		for(VertexTexture vt : vertexTextureList)
 		{

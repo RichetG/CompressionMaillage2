@@ -136,7 +136,7 @@ public class Action implements ActionListener{
 						} catch (IOException e1) {
 							e1.printStackTrace();
 						}
-						Interface.taux.setText(compression.tauxErreur(list)+"%");
+						Interface.taux.setText(compression.tauxErreur()+"%");
 						label8.setText("");
 						dialog.setVisible(false);
 					}else{

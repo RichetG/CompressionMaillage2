@@ -6,7 +6,7 @@ package Modele;
  * @version 03/11/15
  *
  */
-public class Vertex3D
+public class Vertex3D implements Cloneable
 {
 	// coordonnees du vertex
 	private double x, y, z;
@@ -84,5 +84,9 @@ public class Vertex3D
 	public String toString()
 	{
 		return "v " + x + " " + y + " " + z;
+	}
+	
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
 	}
 }

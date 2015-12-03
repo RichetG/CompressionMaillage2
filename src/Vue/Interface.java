@@ -67,7 +67,7 @@ public class Interface extends JFrame
 		
 		panel3=new JPanel(new FlowLayout());
 		result=new JLabel("Résultat du taux d'erreur: ");
-		taux=new JLabel("ici");
+		taux=new JLabel("Inconnu");
 		panel3.add(result);
 		panel3.add(taux);
 		add(panel3, "South");
